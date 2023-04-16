@@ -1,36 +1,23 @@
 import Express from "express";
+import mongoose from "mongoose";
+
 const app = Express();
 
-
+import { HealthCheckRouter } from "./routes/healthcheck";
 
 import dotenv from "dotenv"
 dotenv.config()
+
 const PORT = process.env.PORT || 1337
 
-import mongoose from "mongoose";
-import  logger  from "./utils/logger";
 import connectDB from "./utils/connect";
+import  logger  from "./utils/logger";
+
+
 connectDB()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+////////////////////////////////////Routes
+app.use("/healthcheck" , HealthCheckRouter)
 
 
 mongoose.connection.once("open" , () => {
