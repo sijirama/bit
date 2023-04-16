@@ -4,7 +4,8 @@
   "description": "simple crud api ",
   "main": "src/app.ts",
   "scripts": {
-    "dev": "nodemon --exec ts-node src/app"
+    "dev": "nodemon --exec ts-node src/app",
+    "dev2": "ts-node-dev --respawn --transpile-only src/app.ts"
   },
   "repository": {
     "type": "git",
