@@ -1,11 +1,12 @@
 import {Request , Response , } from "express"
 import logger from "../utils/logger"
+import createUser from "../service/user.service"
 
-export function createUserHandle(req : Request, res : Response){
+export async function createUserHandle(req : Request, res : Response){
     try {
-        // const User = await 
-    } catch (error) {
+        const User = await createUser( req.body )
+    } catch (error:any) {
         logger.error(error)
-        res.status(409)
+        res.status(409).send( error.message)
     }
 }

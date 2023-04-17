@@ -12,12 +12,14 @@ const PORT = process.env.PORT || 1337
 
 import connectDB from "./utils/connect";
 import  logger  from "./utils/logger";
+import { UserRouter } from "./routes/user.route";
 
 
 connectDB()
 
 ////////////////////////////////////Routes
 app.use("/healthcheck" , HealthCheckRouter)
+app.use(UserRouter)
 
 
 mongoose.connection.once("open" , () => {
