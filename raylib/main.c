@@ -1,7 +1,7 @@
 #include "raylib.h"
 
 int main() {
-	InitWindow(800, 450, "siji is doing raylib");
+	InitWindow(800, 450, "siji is doing cool raylib");
 
 	while (!WindowShouldClose()) {
 		BeginDrawing();
