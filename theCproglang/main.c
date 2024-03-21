@@ -1,54 +1,37 @@
+#include "main.h"
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
-#define LOWER 0
-#define UPPER 300
-#define COUNTER 7
+void testStaticWithRecurse() {
+	static int counter = 0;
+	if (counter > 10) {
+		return;
+	}
+	printf("%d\n", counter);
+	++counter;
+	testStaticWithRecurse();
+}
 
-void removeCommentsFromFIle() {
-
-	char lines[UPPER];
-	FILE *fp;
-	int shouldWeBreak = 0;
-
-	fp = fopen("input.c", "r");
-	if (fp == NULL) {
-		printf("Error opening file\n");
-		exit(1);
+void reverse(char *str) {
+	static int counter = 0;
+	int len = strlen(str);
+	--len;
+	if (counter > len / 2) {
+		return;
 	}
 
-	while (fgets(lines, UPPER, fp) != NULL) {
-		for (int i = 0; i < strlen(lines); i++) {
-			if (shouldWeBreak) {
-				if (lines[i] == '*' && lines[i + 1] == '/') {
-					shouldWeBreak = 0;
-					i++; // Skip the '/' character
-				}
-			} else {
-				if (lines[i] == '/') {
-					if (lines[i + 1] == '/') {
-						break;
-					}
-					if (lines[i + 1] == '*') {
-						shouldWeBreak = 1;
-						i = i + 2;
-					}
-				}
-				printf("%c", lines[i]);
-			}
-		}
-		printf("\n");
-	}
+	char temp = str[len - counter];
+	str[len - counter] = str[counter];
+	str[counter] = temp;
 
-	fclose(fp);
+	++counter;
+	reverse(str);
 }
 
 int main() {
-	// removeCommentsFromFIle();
-	char str[] = "900";
-
-	int c = atoi(str);
-	++c;
-	printf("%d\n", c);
+	// testStaticWithRecurse();
+	char str[] = "sijibomi";
+	printf("%s\n", str);
+	reverse(str);
+	printf("%s\n", str);
 }

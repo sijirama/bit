@@ -1,5 +1,6 @@
 CC = cc
 EXECUTABLE = program
+FILES = main.c input.c
 
 test: build
 	./$(EXECUTABLE)
@@ -7,7 +8,7 @@ test: build
 build: $(EXECUTABLE)
 
 $(EXECUTABLE): main.c
-	$(CC) main.c -o $(EXECUTABLE)
+	$(CC) ${FILES} -o $(EXECUTABLE)
 
 clean:
 	rm -f $(EXECUTABLE)
