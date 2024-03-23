@@ -9,6 +9,8 @@ typedef struct {
 
 extern void removeCommentsFromFile();
 extern char *processString(char *str);
+extern void testStaticWithRecurse();
+extern void reverse(char *str);
 
 extern int i;
 extern int x;

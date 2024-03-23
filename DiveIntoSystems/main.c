@@ -1,8 +1,10 @@
-#include <math.h>
-#include <stdio.h>
+#include "main.h"
 
-// NOTE: wtaf
 int main() {
-	printf("The square root of 4 is %f", sqrt(4));
-	return 0;
+	insert(20);
+	insert(30);
+	insert(40);
+	insert(60);
+	insert(80);
+	displayList(head);
 }

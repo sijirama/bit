@@ -1,14 +1,17 @@
+.SILENT:
+
 CC = cc
 EXECUTABLE = program
+FILES = main.c LinkedList.c
 
 test: build
-	./$(EXECUTABLE)
+	./$(EXECUTABLE) && make clean
 
 build: $(EXECUTABLE)
 
 $(EXECUTABLE): main.c
-	$(CC) main.c -o $(EXECUTABLE)
+	$(CC) -Wall ${FILES} -o $(EXECUTABLE)
 
 clean:
-	rm -f $(EXECUTABLE)
+	rm -f $(EXECUTABLE) && rm -f ./a.out
 
