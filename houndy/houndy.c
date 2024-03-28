@@ -9,6 +9,9 @@
 
 #define EXIT_SUCCESS 0
 #define EXIT_FAILURE 1
+#define EXT_ERR_INIT_INOTIFY 2
+
+int IEventQueue = -1;
 
 int main(int argc, char **argv) {
 
@@ -30,6 +33,11 @@ int main(int argc, char **argv) {
 		token = strtok(NULL, "/");
 	}
 
+	IEventQueue = inotify_init();
+	if (IEventQueue == -1) {
+		fprintf(stderr, "Error initializing inotify\n");
+		exit(EXT_ERR_INIT_INOTIFY);
+	}
 	while (true) {
 	}
 }
