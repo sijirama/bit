@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+// INFO: change the readline function if it is windows.
 #ifdef _WIN32
 
 static char buffer[2048];
@@ -22,6 +23,7 @@ void add_history(char *unused) {}
 
 #else
 
+// INFO: import this for linux
 #include <editline/history.h>
 #include <editline/readline.h>
 
